@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+<head>
+  <style>
+    body {
+      background-image: url('resources/93216.jpg');
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <p style="font-family: Calibri; text-align: center; font-size: 30px">
+    Добро пожаловать на мой сайт!
+  </p>
+  <p>
+    <a href="http://cidlik.hopto.org/Den4ik">
+      <img src="resources/link_den4ik.svg" alt="link_den4ik">
+    </a>
+  </p>
+  <p>
+    <a href="http://cidlik.hopto.org/share">
+      <img src="resources/link_file_storage.svg" alt="link_file_storage" align="right">
+    </a>
+  </p>
+  <img src="resources/kotik.gif" alt="kotik" align="left" style="width:300;height:300px;">
+  <img src="resources/cigarette.gif" alt="cigarette" align="right" style="width:150;height:150px;">
+
+  <p>
+    <style>
+      #terminal {
+        width: 400px;
+        height: 200px;
+        background-color: black;
+        color: white;
+        font-family: monospace;
+        padding: 10px;
+        overflow: auto;
+      }
+    </style>
+
+    <div id="terminal">
+      <p id="fileContent"></p>
+    </div>
+    <script>
+      fetch('systeminfo.log')
+        .then(response => response.text())
+        .then(data => {
+          data = data.replace(/\n/g, '<br>');
+          document.getElementById('fileContent').innerHTML = data;
+        });
+    </script>
+  </p>
+</body>
+</html>
